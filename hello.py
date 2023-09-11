@@ -15,7 +15,7 @@ How to use:
 
 How to execute:
 
-    python3 hello.py or 
+    python3 hello.py or
     ./hello.py or
     LANG=it_IT python hello.py -> to specify the current language
 
@@ -29,7 +29,7 @@ __license__ = 'Unlicense'
 # to import lib os to modify the environment
 import os
 
-# function (os.getenv_ verify the content of environment varible 
+# function (os.getenv_ verify the content of environment varible
 # the first five caracteres show 'LANG'
 current_language = os.getenv('LANG', 'en_US')[:5]
 

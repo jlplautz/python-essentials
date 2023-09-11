@@ -16,7 +16,7 @@ clientes = ['Maria', 'Joao', 'Jorge']
 for cliente in clientes:
     print(
         email_tmpl
-        %{
+        % {
             'nome': cliente,
             'produto': 'caneta',
             'texto': 'Execelente e elegante escrita',

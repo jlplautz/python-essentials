@@ -108,4 +108,10 @@ Durante o treinamento usaremos:
 
 Emojis
 
-print("\U0001F600") print("\U0001F43C") print("\N{watermelon}")
+In [2]: print("\U0001F600") or print("\N{smile}")
+😀
+
+In [3]: print("\U0001F43C") or print("\N{panda face}")
+🐼
+In [4]: print("\N{watermelon}")
+🍉

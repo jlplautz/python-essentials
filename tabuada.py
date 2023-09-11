@@ -1,6 +1,6 @@
-#!/usr/bin/env python
-"""
-Imprime a tbuada do 1 ao 10.
+#!/usr/bin/env python3
+
+"""Imprime a tabuada do 1 ao 10.
 
 ---Tabuada do 1---
     1 x 1 = 1
@@ -18,15 +18,16 @@ Imprime a tbuada do 1 ao 10.
 __version__ = "0.1.1"
 __authon__ = 'Plautz'
 
-
 # base = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-# Iterable (percorriveis)
+# Iterable (percorriveis) -> objectos percorriveis
 numeros = list(range(1, 11))
 
 for n1 in numeros:
-    bloco = ''
+
+    print('{:-^18}'.format(f"Tabuado do {n1}"))
+    print()
     for n2 in numeros:
         resultado = n1 * n2
-        bloco = f'{n1} x {n2} = {resultado}\n'
+        print('{:^18}'.format(f"{n1} x {n2} = {resultado}"))
 
-        print(template.format(bloco=bloco))
+    print('#' * 18)
