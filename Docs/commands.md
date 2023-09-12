@@ -1,3 +1,7 @@
+## twitter.com/rochacbruno
+## rochacbruno@gmail.com
+
+
 >>> import os
 >>> os
 <module 'os' (frozen)>
@@ -154,3 +158,240 @@ python or ipython -> help('FROMATTING')
 -> usar com o restante, msg, print, error
 
 ## UTF-8
+
+---
+
+# Estrutura composta de dados -> Tupla
+
+In [3]: 'Plautz', 1, True, None , 4,8
+Out[3]: ('Plautz', 1, True, None, 4, 8)
+
+In [4]: dados = 'Plautz', 1, True, None , 4,8
+
+In [5]: type(dados)
+Out[5]: tuple
+
+In [6]: dir(tuple)
+Out[6]: 
+['__add__',
+ '__class__',
+ '__class_getitem__',
+ '__contains__',
+ '__delattr__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__getnewargs__',
+ '__getstate__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__rmul__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ 'count',
+ 'index']
+
+ In [11]: dados.count('Plautz')
+Out[11]: 1
+
+In [12]: dados.count(False)
+Out[12]: 0
+
+In [13]: dados[-1] -> com  indice negativa os elementos são verificados 
+Out[13]: 8
+
+In [14]: dados
+Out[14]: ('Plautz', 1, True, None, 4, 8)
+
+In [15]: 'en_US.utf8'[:5]  -> slicing
+Out[15]: 'en_US'
+
+In [18]: for info in dados:
+    ...:     print('-->', info)
+    ...: 
+--> Plautz
+--> 1
+--> True
+--> None
+--> 4
+--> 8
+
+## tuplas são imutável
+
+## desempacotar uma tupla -> unpacking
+In [19]: pontos = 1,2,15
+
+In [20]: x, y, z = pontos
+
+In [21]: x
+Out[21]: 1
+
+In [22]: y
+Out[22]: 2
+
+In [23]: z
+Out[23]: 15
+
+
+In [24]: x, *_ = pontos
+
+In [25]: x
+Out[25]: 1
+
+In [26]: _   -> _ significa que os demais dados serão descartados
+Out[26]: [2, 15]
+
+
+In [27]: head, *body, tail = pontos
+
+In [28]: head
+Out[28]: 1
+
+In [29]: tail
+Out[29]: 15
+
+In [30]: body
+Out[30]: [2]
+
+---
+
+# LISTA -> os elementos são mutaveis
+
+## o comando pop remove o utima elemento da lista
+In [2]: res=[]
+In [3]: for num in range(1,9):
+   ...:     res.append(num * 4)
+   ...: 
+In [4]: res
+Out[4]: [4, 8, 12, 16, 20, 24, 28, 32]
+
+In [5]: res.__contains__
+Out[5]: <method-wrapper '__contains__' of list object at 0x7fa15b52af80>
+
+In [6]: 15 in res
+Out[6]: False
+
+---
+# SET para criar um conjunto usar a sintase abaixo
+In [9]: c1 = set()
+
+In [10]: type(c1)
+Out[10]: set
+
+## União entre dois conjuntos
+In [18]: conj_a = [1,2,3,4,5]
+
+In [19]: conj_b = [4,5,6,7,8]
+
+In [20]: set(conj_a) | set(conj_b)
+Out[20]: {1, 2, 3, 4, 5, 6, 7, 8}
+
+In [21]: set(conj_a).union(set(conj_b))
+Out[21]: {1, 2, 3, 4, 5, 6, 7, 8}
+
+
+In [22]: conj_a = set([1,2,3,4,5])
+In [23]: conj_b = set([4,5,6,7,8])
+
+In [24]: conj_a | conj_b
+Out[24]: {1, 2, 3, 4, 5, 6, 7, 8}
+
+## Intercessão entre dois conjuntos
+In [25]: conj_a & conj_b
+Out[25]: {4, 5}
+In [26]: conj_a.intersection(conj_b)
+Out[26]: {4, 5}
+
+## Diferença entre dois conjuntos
+In [27]: conj_a - conj_b
+Out[27]: {1, 2, 3}
+
+In [28]: conj_a.difference(conj_b)
+Out[28]: {1, 2, 3}
+
+## Diferença simetrica entre dois conjuntos
+In [30]: conj_a.symmetric_difference(conj_b)
+Out[30]: {1, 2, 3, 6, 7, 8}
+
+In [31]: conj_a ^ conj_b
+Out[31]: {1, 2, 3, 6, 7, 8}
+
+## Set implementa um hash table
+-> em listas a busca é O(n) , pois tem que passar em cada elemento
+-> em set a busca é O(1) -> constante pois o set tem o hash table
+
+---
+
+# Dicionário
+
+-> a busca em um dicionario é O(1) -> constante
+-> quando a busca é na chave é rapido.
+-> mas quando a busca é no valor a busca não é rapida.
+-> precisa usar um arvore invertida para buscar o valor
+
+In [34]: cliente = {'nome': 'Jorge', 'idade': 64}
+
+In [35]: cliente
+Out[35]: {'nome': 'Jorge', 'idade': 64}
+
+In [36]: len(cliente)
+Out[36]: 2
+
+In [37]: cliente.keys()
+Out[37]: dict_keys(['nome', 'idade'])
+
+In [38]: cliente.values()
+Out[38]: dict_values(['Jorge', 64])
+
+In [39]: cliente.items()
+Out[39]: dict_items([('nome', 'Jorge'), ('idade', 64)])
+
+In [41]: extra_info = {'cidade': 'Curitiba'}
+
+In [42]: cliente.update(extra_info)
+
+In [43]: cliente
+Out[43]: {'nome': 'Jorge', 'idade': 64, 'cidade': 'Curitiba'}
+
+In [45]: extra_info
+Out[45]: {'cidade': 'Curitiba'}
+
+In [46]: {**extra_info, **cliente}
+Out[46]: {'cidade': 'Curitiba', 'nome': 'Jorge', 'idade': 64}
+
+In [47]: final = {**cliente, **extra_info}
+In [48]: final
+Out[48]: {'nome': 'Jorge', 'idade': 64, 'cidade': 'Curitiba'}
+
+In [49]: for chave in cliente:
+    ...:     print(chave, '->', cliente[chave])
+    ...: 
+nome -> Jorge
+idade -> 64
+cidade -> Curitiba
+
+
+In [50]: for chave, valor  in cliente.items():
+    ...:     print(chave, '->', cliente[chave])
+    ...: 
+nome -> Jorge
+idade -> 64
+cidade -> Curitiba
